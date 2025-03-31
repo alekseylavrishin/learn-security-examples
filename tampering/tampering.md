@@ -25,5 +25,9 @@ This example demonstrates tampering through script injection.
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
+   * In insecure.ts, the input is not being sanitized on line 58. The server is implicitly trusting that a user will only enter an alphanumeric string.
+   * An attacker could submit a string with a malicious payload, such as malicious code in the case of an XSS attack.
 2. Briefly explain how a malicious attacker can exploit them.
-3. Briefly explain why **secure.ts** does not have the same vulnerabilties?
+   * An attacker could submit malicious code through the name field, that when ran, could execute a payload performing unauthorized actions on the recipient's machine.
+3. Briefly explain why **secure.ts** does not have the same vulnerabilities?
+   * secure.ts sanitizes the user's input, removing any harmful HTML code, before the form is submitted. 
